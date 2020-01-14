@@ -1,0 +1,9 @@
+README.md
+setup.py
+cleantext/__init__.py
+cleantext/cleantext.py
+cleantext.egg-info/PKG-INFO
+cleantext.egg-info/SOURCES.txt
+cleantext.egg-info/dependency_links.txt
+cleantext.egg-info/requires.txt
+cleantext.egg-info/top_level.txt
