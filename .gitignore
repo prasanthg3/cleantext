@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+cleantext.egg-info/
+.idea/
+README.md.txt
+LICENSE.txt
+
+

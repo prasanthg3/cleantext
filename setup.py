@@ -1,14 +1,15 @@
 import os
 from setuptools import setup
+from cleantext import __maintainer__,__version__
 
 
 rootdir = os.path.abspath(os.path.dirname(__file__))
 setup(
    name='cleantext',
-   version='1.1.3',
+   version=__version__,
    description='An open-source python package to clean raw text data',
    
-   author='Prasanth Gudiwada',
+   author=__maintainer__,
    author_email='prasanth.gudiwada@gmail.com',
    url='https://github.com/prasanthg3/cleantext',
    license='MIT',
