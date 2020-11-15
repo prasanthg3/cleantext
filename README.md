@@ -1,4 +1,7 @@
 # cleantext
+
+[![Downloads](https://static.pepy.tech/personalized-badge/cleantext?period=month&units=international_system&left_color=grey&right_color=green&left_text=Downloads/month)](https://pepy.tech/project/cleantext)
+
 cleantext is a an open-source python package to clean raw text data. Source code for the library can be found [here.](https://github.com/prasanthg3/cleantext)
 
 
