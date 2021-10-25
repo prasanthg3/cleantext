@@ -3,7 +3,7 @@ import string
 from .exceptions import CleanTextEmptyString
 
 ps = nltk.PorterStemmer()
-
+nltk.download('stopwords')
 
 def clean(text: str, clean_all: bool = True, extra_spaces: bool = False, stemming: bool = False,
           stopwords: bool = False,
