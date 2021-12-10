@@ -1,4 +1,4 @@
-# __init__.py
+"""__init__"""
 from .cleantext import *
 
 __version__ = '1.1.4'
