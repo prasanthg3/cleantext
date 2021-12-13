@@ -3,18 +3,12 @@ import string
 from .exceptions import CleanTextEmptyString
 
 ps = nltk.PorterStemmer()
-nltk.download('stopwords')
 
 
-def clean(text: str,
-          clean_all: bool = True,
-          extra_spaces: bool = False,
-          stemming: bool = False,
+def clean(text: str, clean_all: bool = True, extra_spaces: bool = False, stemming: bool = False,
           stopwords: bool = False,
-          lowercase: bool = False,
-          numbers: bool = False,
-          punct: bool = False,
-          stp_lang: str = 'english') -> str:
+          lowercase: bool = False, numbers: bool = False,
+          punct: bool = False, stp_lang: str = 'english') -> str:
     """Given a raw string, return cleaned text
 
     :param text: Input text to clean
@@ -36,12 +30,10 @@ def clean(text: str,
     if clean_all:
         while '  ' in text.strip():
             text = text.replace("  ", " ")
-        text = "".join([word.casefold() for word in text
-                        if word not in string.punctuation])
+        text = "".join([word.casefold() for word in text if word not in string.punctuation])
         text = "".join([_ for _ in text if not _.isdigit()])
         tokens = text.split()
-        text = " ".join([ps.stem(word) for word in tokens
-                         if word not in stop_words])
+        text = " ".join([ps.stem(word) for word in tokens if word not in stop_words])
         return text.strip()
 
     else:
@@ -53,8 +45,7 @@ def clean(text: str,
         if numbers:
             text = "".join([_ for _ in text if not _.isdigit()])
         if punct:
-            text = "".join([word for word in text
-                            if word not in string.punctuation])
+            text = "".join([word for word in text if word not in string.punctuation])
 
         if stopwords:
             text = text.split()
@@ -66,15 +57,10 @@ def clean(text: str,
         return text.strip()
 
 
-def clean_words(text: str,
-                clean_all: bool = True,
-                extra_spaces: bool = False,
-                stemming: bool = False,
+def clean_words(text: str, clean_all: bool = True, extra_spaces: bool = False, stemming: bool = False,
                 stopwords: bool = False,
-                lowercase: bool = False,
-                numbers: bool = False,
-                punct: bool = False,
-                stp_lang: str = 'english') -> list:
+                lowercase: bool = False, numbers: bool = False,
+                punct: bool = False, stp_lang: str = 'english') -> list:
     """Given a raw string, return list of clean words
 
     :param text: Input text to clean
@@ -88,7 +74,6 @@ def clean_words(text: str,
     :param stp_lang: Language for stop words
     :return: Cleaned text
     """
-    text = clean(text, clean_all, extra_spaces, stemming, stopwords, lowercase,
-                 numbers, punct, stp_lang)
+    text = clean(text, clean_all, extra_spaces, stemming, stopwords, lowercase, numbers, punct, stp_lang)
 
     return text.split()
