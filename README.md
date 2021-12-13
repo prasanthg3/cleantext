@@ -56,7 +56,7 @@ cleantext.clean_words("your_raw_text_here", all= True)
 
 ``` python
 cleantext.clean_words("your_raw_text_here",
-all= False # Execute all cleaning operations
+clean_all= False # Execute all cleaning operations
 extra_spaces=True ,  # Remove extra white spaces 
 stemming=True , # Stem the words
 stopwords=True ,# Remove stop words
