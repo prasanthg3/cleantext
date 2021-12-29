@@ -23,4 +23,4 @@ jobs:
       run: |
         pylint $(find . -name "*.py" | xargs)
     - name: Run tests with pytest
-        run: pytest
+      run: pytest
