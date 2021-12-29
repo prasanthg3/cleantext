@@ -51,6 +51,14 @@ def test_spaces(text: str):
     assert clean(text, extra_spaces=True) == "SAMple 23Te Xt"
 
 
+@pytest.mark.parametrize('text', ["samp37le6"])
+def test_numbers(text: str):
+    """Test for clean function
+       :return:
+       """
+    assert clean(text, numbers=True) == "sample"
+
+
 @pytest.mark.parametrize('text', ["Sam4789ple to 345rem1ove 5nu534m2bers"])
 def test_reg(text: str):
     """Test for clean function
