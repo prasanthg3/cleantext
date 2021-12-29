@@ -37,32 +37,50 @@ def test_empty_string():
 
 @pytest.mark.parametrize('text', ["SAMple 23TeXt"])
 def test_case(text: str):
+    """Test for clean function
+       :return:
+       """
     assert clean(text, lowercase=True) == "sample 23text"
 
 
 @pytest.mark.parametrize('text', ["SAMple    23Te  Xt"])
 def test_spaces(text: str):
+    """Test for clean function
+       :return:
+       """
     assert clean(text, extra_spaces=True) == "SAMple 23Te Xt"
 
 
 @pytest.mark.parametrize('text', ["Sam4789ple to 345rem1ove 5nu534m2bers"])
 def test_reg(text: str):
+    """Test for clean function
+       :return:
+       """
     assert clean(text, reg=r'\d', clean_all=False) == "Sample to remove numbers"
 
 
 @pytest.mark.parametrize('text', ["my id, name1@dom1.com and your, name2@dom2.in"])
 def test_reg_1(text: str):
+    """Test for clean function
+       :return:
+       """
     assert clean(text, reg=r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", reg_replace='email',
                  clean_all=False) == "my id, email and your, email"
 
 
 @pytest.mark.parametrize('text', ["my id, name1@dom1.com and your, name2@dom2.in"])
 def test_reg_list(text: str):
-    assert clean_words(text, reg=r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", reg_replace='email') == ['id', 'email',
-                                                                                                      'email']
+    """Test for clean function
+       :return:
+       """
+    assert clean_words(text, reg=r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", reg_replace='email') \
+           == ['id', 'email', 'email']
 
 
 @pytest.mark.parametrize('text', ["my id: name1@dom1.com and your id: name2@dom2.in"])
-def test_reg_list(text: str):
+def test_reg_list_2(text: str):
+    """Test for clean function
+       :return:
+       """
     assert clean_words(text, reg=r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+",
                        clean_all=False) == ['my', 'id:', 'and', 'your', 'id:']
