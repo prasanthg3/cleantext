@@ -1,4 +1,4 @@
-name: Pylint
+name: Pylint-Pytest
 
 on: [push]
 
@@ -22,3 +22,5 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(find . -name "*.py" | xargs)
+    - name: Run tests with pytest
+        run: pytest
