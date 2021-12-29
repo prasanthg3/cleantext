@@ -1,13 +1,13 @@
 """setup"""
-import os
-import codecs
+import pathlib
 from setuptools import setup
-from cleantext import __maintainer__, __version__
 
-rootdir = os.path.abspath(os.path.dirname(__file__))
+HERE = pathlib.Path(__file__).parent.resolve()
 
-with codecs.open(os.path.join(rootdir, "README.md"), encoding="utf-8") as fh:
-    long_description = "\n" + fh.read()
+# Get the long description from the README file
+long_description = (HERE / 'README.md').read_text(encoding='utf-8')
+__version__ = '1.1.4'
+__maintainer__ = 'Prasanth Gudiwada'
 
 setup(
     name='cleantext',
@@ -17,8 +17,9 @@ setup(
     author_email='prasanth.gudiwada@gmail.com',
     url='https://github.com/prasanthg3/cleantext',
     license='MIT',
-    long_description="\n" + fh.read(),
+    long_description=long_description,
     long_description_content_type='text/markdown',
     packages=['cleantext'],
     install_requires=['nltk'],
+    tests_require=['pytest']
 )
