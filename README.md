@@ -99,7 +99,7 @@ returns,
 ----
 
 ``` Python
-import cleantext
+from cleantext import clean
 text = "my id, name1@dom1.com and your, name2@dom2.in"
 clean(text, reg=r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", reg_replace='email', clean_all=False)
 

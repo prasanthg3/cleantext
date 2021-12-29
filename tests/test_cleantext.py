@@ -1,3 +1,4 @@
+"""tests"""
 import pytest
 from cleantext import clean, clean_words
 from cleantext.exceptions import CleanTextEmptyString
