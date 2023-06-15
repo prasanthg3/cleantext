@@ -2,6 +2,8 @@
 import re
 import string
 import nltk
+import gzip
+import Levenshtein as dst
 from nltk.corpus import stopwords as sw
 
 from .exceptions import CleanTextEmptyString
@@ -114,3 +116,25 @@ def clean_words(text: str,  # pylint: disable=too-many-arguments
                  numbers, punct, reg, reg_replace, stp_lang)
 
     return text.split()
+
+
+def wordslist():
+
+    """
+    Returns with a list of words in the common english dictionary    
+    """
+    with gzip.open('english/words.txt.gz') as f:
+        wrds_list = f.read().decode().split()
+    return wrds_list
+
+def spellcorrect(word: str):
+
+    """
+    Given a misspelled word it returns the most probable correctly spelled word
+    :param word: Input word to be spelled correctly
+    """
+
+    edit_distance = [len(dst.editops(word, w)) for w in wordslist()]
+    sort_index = [i for i, k in sorted(enumerate(edit_distance), key=lambda k: k[1])]
+    
+    return wordslist()[sort_index[0]]
