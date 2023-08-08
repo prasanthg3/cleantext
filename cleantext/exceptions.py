@@ -2,5 +2,5 @@
 
 
 class CleanTextEmptyString(ValueError):
-    """Vlaue error for cleantext
+    """Value error for cleantext
     """
